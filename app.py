@@ -39,7 +39,7 @@ def main():
             
         st.markdown("---")
         st.markdown("### About")
-        st.markdown("This internship-level project uses Retrieval-Augmented Generation (RAG) to let you converse with content from YouTube videos.")
+        st.markdown("This project uses Retrieval-Augmented Generation (RAG) to let you converse with content from YouTube videos.")
         st.markdown("**Tech Stack:**\n- Streamlit\n- LangChain\n- FAISS\n- Mistral AI Models")
 
     if "messages" not in st.session_state:
@@ -90,7 +90,6 @@ def main():
         
         st.session_state.messages = []
 
-    # Display Video Metadata if available
     if st.session_state.video_meta:
         with st.container():
             st.markdown("---")
@@ -110,7 +109,6 @@ def main():
                     col_met2.metric("Total Chunks Created", st.session_state.num_chunks)
             st.markdown("---")
 
-    # Chat interface
     for message in st.session_state.messages:
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
@@ -147,7 +145,6 @@ def main():
                 except Exception as e:
                     st.error(f"Error during response generation: {e}")
                     
-    # Footer
     st.markdown(
         """
         <div style='text-align: center; margin-top: 50px; color: grey; font-size: 0.8em;'>
